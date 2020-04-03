@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+      <h1>Auto Fill</h1>
+
+<form action="{{ url_for('loadData') }}" method="post">
+  <button> load corpus </button>
+  {{msg}}
+</form>
+
+<form action="{{ url_for('hello') }}" method="post">
+  <input name="inpt" type="text" placeholder="Enter your name">
+  <button> Submit </button>
+  <ul>
+    {%for s in suggestions%}
+      <li>
+        {{s}}
+      </li>
+      {% endfor %}
+  </ul>
+</form>
+
+</body>
